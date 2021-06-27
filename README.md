@@ -1,7 +1,8 @@
 # Cryptocurrency-Alert-App
 This application alerts the user when a cryptocurrency reaches a specific value.
 
-To install and use this on your local machine follow these steps:
+To install and use this on your local machine follow these steps-
+
 Requirements:
 1. nodejs - Suggested Version LTS v14.27.1
 2. npm - Suggested Version v7.18.1
