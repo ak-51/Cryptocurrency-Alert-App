@@ -2,7 +2,8 @@
 This application was made during a hackathon - Hack The Mountains 2.0. It alerts the user when a cryptocurrency reaches a specific value.
 
 ## You can watch a powerpoint presentation of this project using two methods-
-1. Run [Presentation](Presentation.pptx) from this project.
+1. Run [Presentation](Presentation.pptx) from this project. (Suggested)
+OR
 2. Go to his link: <https://www.slideshare.net/secret/AURAdEfVqqrbOB>
 
 ## To install and use this application on your local machine follow these steps-
