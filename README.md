@@ -1,6 +1,10 @@
 # Cryptocurrency-Alert-App
 This application alerts the user when a cryptocurrency reaches a specific value.
 
+You can watch a powerpoint presentation of this project using two methods-
+1. Run Presentation.pptx from this project.
+2. Go to his link: <https://www.slideshare.net/secret/AURAdEfVqqrbOB>
+
 To install and use this on your local machine follow these steps-
 
 Requirements:
