@@ -5,7 +5,7 @@ var spawn = require('child_process').spawn;
 
 var BTC_price;
 const BTC = () => {
-  const x = spawn('python', ['server/BTC_NT.py']);
+  const x = spawn('python', ['BTC_NT.py']);
   x.stdout.on('data', data => {
       test = data.toString();
   });
@@ -20,7 +20,7 @@ const BTC = () => {
 
 var ETH_price;
 const ETH = () => {
-  const y = spawn('python', ['server/ETH_NT.py']);
+  const y = spawn('python', ['ETH_NT.py']);
   y.stdout.on('data', data => {
       test = data.toString();
   });
@@ -35,7 +35,7 @@ const ETH = () => {
 
 var USDT_price;
 const USDT = () => {
-  const z = spawn('python', ['server/USDT_NT.py']);
+  const z = spawn('python', ['USDT_NT.py']);
   z.stdout.on('data', data => {
       test = data.toString();
   });
@@ -52,16 +52,37 @@ BTC();
 ETH();
 USDT();
 
-app.get("/api", (req, res) => {
-  res.json({ btc: BTC_price, eth: ETH_price, usdt: USDT_price });
-});
-
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
 
 
 app.use(express.json());
+
+app.post('/api/cname', (req, res) => {
+  const cname = req.body.cname;
+  if(cname == "btc"){
+    async function getbtcdata(){
+      await BTC()
+      res.json({btc: BTC_price})
+    }
+    getbtcdata()
+  }
+  else if(cname == "eth"){
+    async function getethdata(){
+      await ETH()
+      res.json({eth: ETH_price})
+    }
+    getethdata()
+  }
+  else if(cname == "usdt"){
+    async function getusdtdata(){
+      await USDT()
+      res.json({usdt: USDT_price})
+    }
+    getusdtdata()
+  }
+})
 
 app.post('/api', (request, response) => {
   const val = request.body.TGVAL;

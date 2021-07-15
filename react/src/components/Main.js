@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { useState } from "react";
 import Target from "../components/TargetPrice"
@@ -11,37 +12,38 @@ const Main = ({ EmId }) => {
     const [data_usdt, setData_usdt] = React.useState(null);
     const [Crr, setCrr] = useState('');
 
-    React.useEffect(() => {
-    fetch("/api")
-        .then((res) => res.json())
-        .then((data_btc) => setData_btc(data_btc.btc));
-    }, []);
-
-    React.useEffect(() => {
-    fetch("/api")
-        .then((res) => res.json())
-        .then((data_eth) => setData_eth(data_eth.eth));
-    }, []);
-
-    React.useEffect(() => {
-    fetch("/api")
-        .then((res) => res.json())
-        .then((data_usdt) => setData_usdt(data_usdt.usdt));
-    }, []);
-
     const getVal = (e) => {
         e.preventDefault();
         if(Text.toUpperCase() === "BTC" || Text.toUpperCase() === "BITCOIN"){
+            axios.post('/api/cname',{
+                cname:"btc"
+            })
+            .then(res => {
+                setData_btc(res.data.btc);
+            })
             setShowPrice("Currency Price: " + "$" + data_btc);
             setCrr("BTC");
         }
         else if(Text.toUpperCase() === "ETH" || Text.toUpperCase() === "ETHEREUM"){
+            axios.post('/api/cname',{
+                cname:"eth"
+            })
+            .then(res => {
+                setData_eth(res.data.eth);
+            })
             setShowPrice("Currency Price: " + "$" + data_eth);
             setCrr("ETH");
         }
         else if(Text.toUpperCase() === "USDT" || Text.toUpperCase() === "TETHER"){
+            axios.post('/api/cname',{
+                cname:"usdt"
+            })
+            .then(res => {
+                setData_usdt(res.data.usdt);
+            })
             setShowPrice("Currency Price: " + "$" + data_usdt);
             setCrr("USDT");
+            
         }
         else{
             setShowPrice("Invalid Input");
