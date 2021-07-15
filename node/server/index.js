@@ -89,7 +89,7 @@ app.post('/api', (request, response) => {
   const Email = request.body.Email;
   const curr = request.body.Curr;
   const price = request.body.Value;
-  const prcs = spawn('python', ['server/script.py']);
+  const prcs = spawn('python', ['script.py']);
   const abc = [val, Email, curr, price];
   prcs.stdin.write(JSON.stringify(abc));
   prcs.stdin.end();
