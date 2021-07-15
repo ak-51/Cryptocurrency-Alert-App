@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Sawo from "sawo";
 import styles from "./styles";
-import Main from "../components/Main";
+import Main from "./Main";
 
 function App() {
   const [userPayload, setUserPayload] = useState({})

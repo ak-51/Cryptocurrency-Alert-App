@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
-import Target from "../components/TargetPrice"
+import Target from "./TargetPrice"
 import styles from "./styles";
 
 const Main = ({ EmId }) => {
